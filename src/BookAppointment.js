@@ -166,7 +166,7 @@ const disabled=(()=>{
           <Dropdown.Item as="button">Guasha</Dropdown.Item>
           <Dropdown.Item as="button">Tuina</Dropdown.Item>
           </DropdownButton> */}
-          <input className="btn btn-primary" type='submit' value="BOOK AN APPOINTMENT" disabled={disabled}/>
+          <input className="btn btn-primary" type='submit' value="BOOK APPOINTMENT" disabled={disabled}/>
           {/* <Button size="sm" variant="solid" h="12" bg="teal.900">
             <Text
               fontSize="lg"
