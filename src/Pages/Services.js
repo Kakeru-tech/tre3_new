@@ -42,7 +42,7 @@ const Services = () => {
                   />
                   <h5>{item.heading}</h5>
                   {/* <h4>About?</h4> */}
-                  <p>We are experts in providing treatment 1 . </p>
+                  <p>We are experts in providing this treatment . </p>
                   <button onClick={() => navigation("/book")}>
                     Book an Appointment
                   </button>
