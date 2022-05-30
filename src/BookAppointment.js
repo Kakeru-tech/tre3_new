@@ -10,6 +10,7 @@ import { Button,  Text } from "native-base";
 import moment from "moment";
 import BookingsScheduler from "./Component/Admin/BookingsScheduler";
 import SelectSlots from "./Component/BookingAppointment/SelectSlots";
+// import DropdownButton from 'react-bootstrap/DropdownButton'
 
 const dataClass = { firstname: "", lastname: "", address: "", phone: "", user_email: "", };
 
@@ -71,7 +72,7 @@ const disabled=(()=>{
             Here we'll show welcome message and assurance of treatment of some
             positive words
           </p>
-          <h2>For Help Call: +61 their Number</h2>
+          <h2>For Help Call: +61 0437288166</h2>
         </div>
         <form className="bookRight" onSubmit={sendAppointment}>
           <Text fontSize="3xl" fontWeight="bold" my="3">
@@ -140,6 +141,31 @@ const disabled=(()=>{
               Choose Your Slot
             </Text>
           </Button>
+          {/* <Button
+            size="sm"
+            variant="solid"
+            my="3"
+            h="12"
+            bg="#75bf47"
+            onPress={() => setShowTime(true)}
+          >
+            <DropdownButton id="dropdown-item-button" title="Service">
+          <Dropdown.ItemText>Select Your Service </Dropdown.ItemText>
+          <Dropdown.Item as="button">Acupunture</Dropdown.Item>
+          <Dropdown.Item as="button">Chinese Herbal Medicine</Dropdown.Item>
+          <Dropdown.Item as="button">Cupping</Dropdown.Item>
+          <Dropdown.Item as="button">Guasha</Dropdown.Item>
+          <Dropdown.Item as="button">Tuina</Dropdown.Item>
+          </DropdownButton>
+          </Button> */}
+          {/* <DropdownButton id="dropdown-item-button" title="Service">
+          <Dropdown.ItemText>Select Your Service </Dropdown.ItemText>
+          <Dropdown.Item as="button">Acupunture</Dropdown.Item>
+          <Dropdown.Item as="button">Chinese Herbal Medicine</Dropdown.Item>
+          <Dropdown.Item as="button">Cupping</Dropdown.Item>
+          <Dropdown.Item as="button">Guasha</Dropdown.Item>
+          <Dropdown.Item as="button">Tuina</Dropdown.Item>
+          </DropdownButton> */}
           <input className="btn btn-primary" type='submit' value="BOOK AN APPOINTMENT" disabled={disabled}/>
           {/* <Button size="sm" variant="solid" h="12" bg="teal.900">
             <Text

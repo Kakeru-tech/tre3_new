@@ -41,7 +41,7 @@ const Services = () => {
                     alt="back"
                   />
                   <h5>{item.heading}</h5>
-                  <h4>About?</h4>
+                  {/* <h4>About?</h4> */}
                   <p>We are experts in providing treatment 1 . </p>
                   <button onClick={() => navigation("/book")}>
                     Book an Appointment
