@@ -1,20 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavigationType, useNavigate } from "react-router-dom";
+import { cards } from "../Component/Data/staticData";
 import Header from "../Component/Header";
-import "../Styles/Services.css";
+import "../Styles/Services.css"
+import Modal from '@material-ui/core/Modal';
+import { Heading, Text, Box } from "native-base";
 const Services = () => {
   const navigation = useNavigate();
-  const cards = [
-    { image: require("../Assets/image_1.jpg"), heading: "acupunture" },
-    {
-      image: require("../Assets/image_2.jpg"),
-      heading: "chinese herbal medicine",
-    },
-    { image: require("../Assets/image_3.jpg"), heading: "Cupping" },
-    { image: require("../Assets/image_4.jpg"), heading: "Guasha" },
-    { image: require("../Assets/image_5.jpg"), heading: "Tuina" },
-    { image: require("../Assets/image_6.jpg"), heading: "Root" },
-  ];
+  const [showModal, setShowModal] = useState(false)
+  const [data, setData] = useState(null)
+  const handleClose = () => {
+    setShowModal(false)
+  }
   return (
     <div>
       <Header />
@@ -33,16 +30,19 @@ const Services = () => {
         <div className="cardSection">
           {cards.length > 0 &&
             cards.map((item, index) => (
-              <div className="serviceCard" key={index}>
+              <div className="serviceCard" key={index} onClick={() => {
+                setShowModal(true)
+                setData(item)
+              }}>
                 <div className="card">
                   {/* <!-- <h2>Read More</h2> --> */}
                   <img
                     src={item.image}
                     alt="back"
                   />
-                  <h5>{item.heading}</h5>
+                  <h5>{item?.heading}</h5>
                   {/* <h4>About?</h4> */}
-                  <p>We are experts in providing this treatment . </p>
+                  <p>{item?.desc} </p>
                   <button onClick={() => navigation("/book")}>
                     Book an Appointment
                   </button>
@@ -50,6 +50,22 @@ const Services = () => {
               </div>
             ))}
         </div>
+
+        <Modal
+          open={showModal}
+          onClose={handleClose}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          className='imageModal'
+        >
+          <Box w='80%' h='80%' bg='#fff'
+            alignItems={'center'} justifyContent='center' alignSelf={'center'} m='auto'>
+            <Heading>{data?.heading}</Heading>
+            <Text>{data?.desc}</Text>
+          </Box>
+
+        </Modal>
+
       </div>
     </div>
   );

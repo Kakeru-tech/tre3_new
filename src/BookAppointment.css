@@ -81,3 +81,12 @@
 .input-field{
   margin-top:10px !important;
 }
+.serviceDropDown{
+  width:100% !important;
+  padding:10px;
+  margin-top: 10px;
+}
+.imageModal{
+  padding:auto !important;
+  margin:4rem;
+}

@@ -29,17 +29,22 @@ const BookingsCard = ({ data }) => {
           pointerEvents="cursor"
         >
           <AccountCircleIcon style={{ width: "30%", height: "30%" }} />
-          <Text>{data?.name}</Text>
+          <Text>Name:{data?.name}</Text>
+          <Text>Email:{data?.email}</Text>
+        <Text>Contact No-:{data?.phone}</Text>
+
         </Box>
         <Box flex="0.5" alignItems={'center'}  justifyContent={'center'}>
-          <Text fontSize={"md"}>Address: {data?.address}</Text>
-          <Text fontSize={"md"}>Phone: {data?.phone}</Text>
-          <Text fontSize={"md"}>Booking On :{date}</Text>
+          <Text>Service: {data?.service ? data.service :'null'}</Text>
+          <Text>Booking Slot:  {data?.time?.start} - {data?.time?.end}</Text>
+          <Text>Booking Date: {date}{`\n`}</Text>
+
           <Button
             onPress={() => remove(data.id)}
             width="40%"
             colorScheme="danger"
             alignSelf={"center"}
+            mt='2'
           >
             Delete
           </Button>
