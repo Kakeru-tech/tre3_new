@@ -74,7 +74,7 @@ function Header() {
                 cursor: "pointer",
               }}
             >
-              About Doctor
+              About Practitioner
             </p>
             <p
               onClick={() => navigation("/location")}

@@ -5,6 +5,7 @@ import Header from "../Component/Header";
 import "../Styles/Services.css"
 import Modal from '@material-ui/core/Modal';
 import { Heading, Text, Box } from "native-base";
+import CloseIcon from '@mui/icons-material/Close';
 const Services = () => {
   const navigation = useNavigate();
   const [showModal, setShowModal] = useState(false)
@@ -43,6 +44,8 @@ const Services = () => {
                   <h5>{item?.heading}</h5>
                   {/* <h4>About?</h4> */}
                   <p>{item?.desc} </p>
+                  {/* <p>{item?.desc.substr(0, 30) + '....'} </p> */}
+                  <button className="btn btn-info">Read More</button>
                   <button onClick={() => navigation("/book")}>
                     Book an Appointment
                   </button>
@@ -58,10 +61,17 @@ const Services = () => {
           aria-describedby="simple-modal-description"
           className='imageModal'
         >
-          <Box w='80%' h='80%' bg='#fff'
+          <Box style={{position:"relative", overflow:"scroll"}} w='80%' h='80%' bg='#fff'
             alignItems={'center'} justifyContent='center' alignSelf={'center'} m='auto'>
-            <Heading>{data?.heading}</Heading>
-            <Text>{data?.desc}</Text>
+            <Heading>
+            {/* {data?.heading} */}
+            Head anything
+            </Heading>
+            <Text>
+            {data?.showDecs}
+            {/* here, you can write anything */}
+            </Text>
+            <CloseIcon onClick={handleClose} style={{position:'absolute', top:'10px', right:'10px', cursor:'pointer'}}/>
           </Box>
 
         </Modal>

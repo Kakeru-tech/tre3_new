@@ -144,7 +144,7 @@ function BookAppointment() {
             <button class="btn btn-primary dropdown-toggle serviceDropDown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               {service?service:'Choose Treatment'}
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
               {
                 services.map((item,i)=>
                 <li key={i}><a class="dropdown-item" href="#" onClick={()=>setService(item?.label)}>{item?.label}</a></li>
