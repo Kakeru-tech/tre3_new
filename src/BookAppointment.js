@@ -59,6 +59,9 @@ function BookAppointment() {
           .then((res) => {
             console.log(res, "firebase response");
             setSuccess(true);
+            alert(
+              "Your Appointment has been booked, Confirmation mail has been sent!" 
+            )
           });
       })
       .catch((e) => {
