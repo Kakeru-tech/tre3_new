@@ -90,3 +90,22 @@
   padding:auto !important;
   margin:4rem;
 }
+
+.dropdown{
+  position: relative !important;
+}
+
+.service_dropDown{
+  position: absolute !important;
+  bottom: 10;
+  width: 100%;
+}
+.dropdown-menu{
+  width: 100% !important;
+  background-color: rgba(66, 167, 68, 0.9) !important;
+}
+
+.dropdown-item{
+  text-align:center;
+
+}
