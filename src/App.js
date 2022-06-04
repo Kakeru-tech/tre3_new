@@ -31,7 +31,6 @@ function App() {
             <Route element={<AboutDoctor />} path="/about/doctor" />
             <Route element={<Location />} path="/location" />
             <Route element={<BookAppointment />} path="/book" />
-
             <Route element={<AdminDashboard />} path="/admin" />
           </Routes>
         </Router>

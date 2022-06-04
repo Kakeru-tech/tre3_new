@@ -1,30 +1,13 @@
-import {
-  CleaningServices,
-  SettingsSystemDaydreamTwoTone,
-} from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  Center,
-  Container,
-  FormControl,
-  HStack,
-  Input,
-  Modal,
-  Pressable,
-  Text,
-  VStack,
-} from "native-base";
+import { CleaningServices, SettingsSystemDaydreamTwoTone, } from "@mui/icons-material";
+import { Box, Button, Center, Container, FormControl, HStack, Input, Modal, Pressable, Text, VStack, } from "native-base";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import BookingsScheduler from "./BookingsScheduler";
 import 'scheduler-calendar/dist/index.css'
-const dataclass = {
-  start: "",
-  end: "",
-  active: true,
-};
+
+const dataclass = { start: "", end: "", active: true, }
+
 const AddSlots = () => {
   const navigation = useNavigate();
   const [data, setData] = useState([]);

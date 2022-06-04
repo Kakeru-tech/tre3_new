@@ -1,38 +1,27 @@
-import {
-  Box,
-  Button,
-  Center,
-  Divider,
-  Heading,
-  HStack,
-  Pressable,
-  Text,
-  VStack,
-} from "native-base";
+import { Box, Button, Center, Divider, Heading, HStack, Pressable, Text, VStack, } from "native-base";
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import BookingsScheduler from "../Admin/BookingsScheduler";
 
-const SelectSlots = ({ data,setData,close}) => {
+const SelectSlots = ({ data, setData, close }) => {
   const navigation = useNavigate();
   const [tslots, setTslots] = useState([]);
   const [bookedSlots, setBookedSlots] = useState([]);
   const [selectedTime, setSelectedTime] = useState(null);
-console.log(data)
   useEffect(() => {
-    if(data.time){
+    if (data.time) {
       setSelectedTime(data.time)
-
     }
     timeSlots();
     db.collection("BookedSlots").onSnapshot((e) =>
-      setBookedSlots(e.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      setBookedSlots(e.docs.map((doc) => ({ ...doc.data().time })))
     );
   }, [navigation]);
 
-  console.log(data, "dataClasss");
+  console.log(bookedSlots,'booked')
+
   const timeSlots = () => {
     var x = {
       nextSlot: 30,
@@ -46,10 +35,12 @@ console.log(data)
       let temp = {
         start: "",
         end: "",
+        id:''
       };
       temp.start = slotTime.format("hh:mm a");
       slotTime = slotTime.add(x.nextSlot, "minutes");
       temp.end = slotTime.format("hh:mm a");
+      temp.id=slotTime.format("hh:mm a").toString()
       times.push(temp);
     }
     setTslots(times);
@@ -75,7 +66,7 @@ console.log(data)
             textAlign="center"
             color="#fff"
             fontWeight="bold">Choose Date</Text>
-          <BookingsScheduler value={data.date} onChange={e=>setData({...data,date:e})} />
+          <BookingsScheduler value={data.date} onChange={e => setData({ ...data, date: e })} />
         </Box>
         <Box
           shadow="5"
@@ -103,8 +94,20 @@ console.log(data)
             justifyContent="center"
           >
             {tslots &&
-              tslots.map((item, i) => (
+              tslots.filter(res =>
+                {
+                  const temp=bookedSlots.map(e=>{
+                    if(res?.id !== e?.id) {
+                      return res
+                    }
+                  })
+                  console.log(temp,'temp')
+                  if(temp[0]?.id===res?.id) return res
+                  if(bookedSlots.length===0) return res
+                })
+              .map((item, i) => (
                 <Pressable
+                  key={i}
                   w="1\3"
                   h="12"
                   borderRadius="10"
@@ -119,13 +122,13 @@ console.log(data)
                       ? setSelectedTime(item)
                       : setSelectedTime(null);
 
-                      setData({...data,time:item})
+                    setData({ ...data, time: item })
                   }}
                   bg={
                     selectedTime
                       ? selectedTime.start === item.start &&
-                        selectedTime.end === item.end &&
-                        "teal.500"
+                      selectedTime.end === item.end &&
+                      "teal.500"
                       : "#fff"
                   }
                 >

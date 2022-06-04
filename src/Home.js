@@ -9,7 +9,6 @@ import { auth } from './firebase'
 import Frame from './Frame'
 
 function Home() {
-    console.log(localStorage.getItem('@user'),'storage')
     return (
         <div>
             <Header />

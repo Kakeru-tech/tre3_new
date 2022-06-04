@@ -18,13 +18,8 @@ const formatDateSmall = (timestamp) => {
   return moment(timestamp).utcOffset("+05:30").format(small_date);
 }
 
-const services=[
-  {label:'Acupuncture'},
-  {label:'Chinese Herbal Medicine'},
-  {label:'Cupping'},
-  {label:'Guasha'},
-  {label:'Tuina'},
-]
+const services=[ {label:'Acupuncture'}, {label:'Chinese Herbal Medicine'}, {label:'Cupping'}, {label:'Guasha'}, {label:'Tuina'}, ]
+
 function BookAppointment() {
   const [data, setData] = useState(dataClass);
   const [dateTime, setDateTime] = useState({ date: new Date(), time: "", });
@@ -58,10 +53,20 @@ function BookAppointment() {
           })
           .then((res) => {
             console.log(res, "firebase response");
-            setSuccess(true);
-            alert(
-              "Your Appointment has been booked, Confirmation mail has been sent!" 
-            )
+            db.collection('BookedSlots')
+            .add({
+              email: data.user_email,
+              ...dateTime
+            })
+            .then(res=>{
+              setSuccess(true);
+              alert(
+                "Your Appointment has been booked, Confirmation mail has been sent!" 
+              )
+            })
+            .catch(e=>{
+              console.log(e,'booked slots exception')
+            })
           });
       })
       .catch((e) => {
@@ -79,10 +84,10 @@ function BookAppointment() {
       <div className="bookAppointment">
         <div className="bookLeft">
           <h1>Book You New Slot and Save Your Time</h1>
-          <p>
+          {/* <p>
             Here we'll show welcome message and assurance of treatment of some
             positive words
-          </p>
+          </p> */}
           <h2>For Help Call: +61 0437288166</h2>
         </div>
         <form className="bookRight" onSubmit={sendAppointment}>

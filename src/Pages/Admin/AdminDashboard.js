@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Center,
-  Container,
-  HStack,
-  Text,
-  VStack,
-} from "native-base";
+import { Box, Button, Center, Container, HStack, Text, VStack, } from "native-base";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddSlots from "../../Component/Admin/AddSlots";
