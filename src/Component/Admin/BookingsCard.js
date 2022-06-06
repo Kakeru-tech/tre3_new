@@ -36,7 +36,9 @@ const BookingsCard = ({ data }) => {
         </Box>
         <Box flex="0.5" alignItems={'center'}  justifyContent={'center'}>
           <Text>Service: {data?.service ? data.service :'null'}</Text>
-          <Text>Booking Slot:  {data?.time?.start} - {data?.time?.end}</Text>
+          <Text>Booking Slot:</Text>
+          <Text>Date: {data?.date.toDate().toDateString()}</Text>
+          <Text>Time: {data?.time?.start} - {data?.time?.end}</Text>
           <Text>Booking Date: {date}{`\n`}</Text>
 
           <Button

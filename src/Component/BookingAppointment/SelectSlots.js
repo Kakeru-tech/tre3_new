@@ -15,12 +15,21 @@ const SelectSlots = ({ data, setData, close }) => {
       setSelectedTime(data.time)
     }
     timeSlots();
-    db.collection("BookedSlots").onSnapshot((e) =>
-      setBookedSlots(e.docs.map((doc) => ({ ...doc.data().time })))
-    );
-  }, [navigation]);
+    let alreadyBookedSlots = [];
+    db.collection("BookedSlots").onSnapshot((e) => {
+      
+      e.docs.forEach((doc) => { 
+        console.log("DATAINTIME---", data.date.getTime(), doc.data().date, data.date.getTime() === doc.data().date)
+        if(data && data.date.getTime() === doc.data().date) {
+          alreadyBookedSlots.push(doc.data().time)
+        }
+      })
+      setBookedSlots(alreadyBookedSlots)
 
-  console.log(bookedSlots,'booked')
+    });
+  }, [navigation, data]);
+
+  console.log('booked',bookedSlots)
 
   const timeSlots = () => {
     var x = {
@@ -96,14 +105,22 @@ const SelectSlots = ({ data, setData, close }) => {
             {tslots &&
               tslots.filter(res =>
                 {
-                  const temp=bookedSlots.map(e=>{
-                    if(res?.id !== e?.id) {
-                      return res
-                    }
+                  const isSlotBooked = bookedSlots.findIndex((bookedS) => {
+                    return bookedS.id === res.id;
                   })
-                  console.log(temp,'temp')
-                  if(temp[0]?.id===res?.id) return res
-                  if(bookedSlots.length===0) return res
+                  // const temp=bookedSlots.map(e=>{
+                  //   if(res?.id !== e?.id) {
+                  //     return res
+                  //   }
+                  // })
+                  // if(temp[0]?.id===res?.id) return res
+                  // if(bookedSlots.length===0) return res
+
+                  if(isSlotBooked >= 0)
+                  {
+                    return false
+                  }
+                  return true
                 })
               .map((item, i) => (
                 <Pressable

@@ -11,12 +11,18 @@ const AllBookings = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    let addData = [];
     db.collection("Bookings")
       .orderBy("timestamp", "desc")
-      .onSnapshot((e) =>
-        setData(e.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-      );
+      .onSnapshot((e) => {
+        e.docs.map((doc) => addData.push({ ...doc.data(), id: doc.id }))
+        setData(addData)
+
+      });
   }, [navigation]);
+
+  console.log("ALLLBOOKING---", data, data.length)
+
   return (
     <Container flex="1" mt="10" width={"100vw"} p="4">
       <Box shadow={8} width={"80vw"} p="5" className="glassHead">

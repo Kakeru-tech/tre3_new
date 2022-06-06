@@ -56,7 +56,8 @@ function BookAppointment() {
             db.collection('BookedSlots')
             .add({
               email: data.user_email,
-              ...dateTime
+              date: dateTime.date.getTime(),
+              time: dateTime.time
             })
             .then(res=>{
               setSuccess(true);
