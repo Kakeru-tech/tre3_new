@@ -8,14 +8,10 @@ function Gallary() {
         <div className="galleryleft">
           <h1>Store locations</h1>
           <p>
-            Get bulk bill eye test with an optometrist at any one of our 110+
-            Australian store locations.
+            Heading para
           </p>
           <p>
-            Come visit us to have your eye health checked, look out for eye
-            problems or eye diseases, update your prescription, and try on all
-            of our glasses frames to find the perfect fit. Our in-store stylists
-            are here to help you find the right pair of glasses or sunglasses.
+            Any Text
           </p>
           <button>Find Out More</button>
         </div>
@@ -36,14 +32,10 @@ function Gallary() {
         <div className="galleryleft">
           <h1 style={{ paddingLeft: "20px" }}>Store locations</h1>
           <p style={{ paddingLeft: "20px" }}>
-            Get bulk bill eye test with an optometrist at any one of our 110+
-            Australian store locations.
+            heading para
           </p>
           <p style={{ paddingLeft: "20px" }}>
-            Come visit us to have your eye health checked, look out for eye
-            problems or eye diseases, update your prescription, and try on all
-            of our glasses frames to find the perfect fit. Our in-store stylists
-            are here to help you find the right pair of glasses or sunglasses.
+            any text
           </p>
           <div style={{ paddingLeft: "20px" }}>
             <button>View More</button>

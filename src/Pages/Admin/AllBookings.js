@@ -4,24 +4,33 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BookingsCard from "../../Component/Admin/BookingsCard";
 import { db } from "../../firebase";
+import firebase from 'firebase/app';
 import "../../Styles/AllBookings.css";
+
+
 const AllBookings = () => {
   const navigation = useNavigate();
+  const auth = firebase.auth();
+  const user = auth.currentUser?.uid;
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
     let addData = [];
-    db.collection("Bookings")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((e) => {
-        e.docs.map((doc) => addData.push({ ...doc.data(), id: doc.id }))
-        setData(addData)
+    if(user === '60UCDF2biAdLsbVtPodocfaUqby2') {
+      db.collection("Bookings")
+        .orderBy("timestamp", "desc")
+        .onSnapshot((e) => {
+          e.docs.map((doc) => addData.push({ ...doc.data(), id: doc.id }))
+          setData(addData)
 
-      });
+        });
+    } else {
+      setData([])
+    }
   }, [navigation]);
 
-  console.log("ALLLBOOKING---", data, data.length)
+  console.log("ALLLBOOKING---", user)
 
   return (
     <Container flex="1" mt="10" width={"100vw"} p="4">

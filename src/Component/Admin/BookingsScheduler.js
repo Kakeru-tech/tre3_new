@@ -10,7 +10,7 @@ const BookingsScheduler = ({value,onChange}) => {
     <Center p="3" m='1'>
       <Calendar onChange={onChange} value={value} 
       tileDisabled={(data) => {
-        console.log("TILEEEEEE-----", data.date, value)
+        // console.log("TILEEEEEE-----", data.date, value)
         if(data.date.getDate() === currentDate.getDate() && data.date.getMonth() === currentDate.getMonth()) {
           return false;
         }

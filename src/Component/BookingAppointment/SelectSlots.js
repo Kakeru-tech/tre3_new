@@ -16,12 +16,23 @@ const SelectSlots = ({ data, setData, close }) => {
     }
     timeSlots();
     let alreadyBookedSlots = [];
-    db.collection("BookedSlots").onSnapshot((e) => {
+    // db.collection("BookedSlots").onSnapshot((e) => {
+      
+    //   e.docs.forEach((doc) => { 
+    //     console.log("DATAINTIME---", data.date.getTime(), doc.data().date, data.date.getTime() === doc.data().date)
+    //     if(data && data.date.getTime() === doc.data().date) {
+    //       alreadyBookedSlots.push(doc.data().time)
+    //     }
+    //   })
+    //   setBookedSlots(alreadyBookedSlots)
+
+    // });
+    db.collection("Bookings").onSnapshot((e) => {
       
       e.docs.forEach((doc) => { 
-        console.log("DATAINTIME---", data.date.getTime(), doc.data().date, data.date.getTime() === doc.data().date)
-        if(data && data.date.getTime() === doc.data().date) {
-          alreadyBookedSlots.push(doc.data().time)
+        console.log("DATAINTIME---", data.date.getTime(), doc.data().bookedDate, data.date.getTime() === doc.data().date)
+        if(data && data.date.getTime() === doc.data().bookedDate) {
+          alreadyBookedSlots.push(doc.data().bookedTime)
         }
       })
       setBookedSlots(alreadyBookedSlots)

@@ -6,7 +6,7 @@ function Book() {
     <div className="book">
       <div className="bookcontent">
         <div className="left">
-          <h1>Book an eye test near you</h1>
+          <h1>Book test</h1>
         </div>
         <div className="center">
           <div className="centerContent">

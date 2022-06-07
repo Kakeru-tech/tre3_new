@@ -47,27 +47,33 @@ function BookAppointment() {
             email: data.user_email,
             address: data.address,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            bookedDate: dateTime.date.getTime(),
+            bookedTime: dateTime.time,
             phone: data.phone,
             service:service,
             ...dateTime,
           })
           .then((res) => {
             console.log(res, "firebase response");
-            db.collection('BookedSlots')
-            .add({
-              email: data.user_email,
-              date: dateTime.date.getTime(),
-              time: dateTime.time
-            })
-            .then(res=>{
-              setSuccess(true);
+            setSuccess(true);
               alert(
                 "Your Appointment has been booked, Confirmation mail has been sent!" 
               )
-            })
-            .catch(e=>{
-              console.log(e,'booked slots exception')
-            })
+            // db.collection('BookedSlots')
+            // .add({
+            //   email: data.user_email,
+            //   date: dateTime.date.getTime(),
+            //   time: dateTime.time
+            // })
+            // .then(res=>{
+            //   setSuccess(true);
+            //   alert(
+            //     "Your Appointment has been booked, Confirmation mail has been sent!" 
+            //   )
+            // })
+            // .catch(e=>{
+            //   console.log(e,'booked slots exception')
+            // })
           });
       })
       .catch((e) => {

@@ -61,7 +61,7 @@ const Services = () => {
           aria-describedby="simple-modal-description"
           className='imageModal'
         >
-          <Box style={{position:"relative", overflow:"scroll"}} w='80%' h='80%' bg='#fff'
+          <Box style={{position:"relative", overflow:"scroll"}} w='50%' h='50%' bg='#fff'
             alignItems={'center'} justifyContent='center' alignSelf={'center'} m='auto'>
             <Heading>
             {/* {data?.heading} */}
