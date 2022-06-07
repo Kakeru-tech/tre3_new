@@ -48,6 +48,9 @@ export default function SignIn() {
         console.log(res, "response");
         navigation("/");
         localStorage.setItem('@user',res.user)
+        alert(
+          "You have been logged in successfully" 
+        )
       })
       .catch((e) => {
         setError(e.message);
