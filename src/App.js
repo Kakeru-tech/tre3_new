@@ -21,7 +21,7 @@ function App() {
   return (
     <NativeBaseProvider>
       <div className="app">
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Routes>
             <Route element={<SignIn />} path="/login" />
             <Route element={<Register />} path="/register" />

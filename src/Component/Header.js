@@ -16,7 +16,6 @@ function Header() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          {/* <img src={require("../Assets/header.JPG")} /> */}
         </a>
         <button
           className="navbar-toggler"
@@ -68,61 +67,7 @@ function Header() {
         </div>
       </div>
     </nav>
-    // <div className="header">
-    //   <div className="header-left">
-    //     <img src={require("../Assets/header.JPG")} />
-    //   </div>
-    //   <div className="header_center">
-    //     <p
-    //       onClick={() => navigation("/")}
-    //       style={{
-    //         borderBottom: `${pathName === "/" && `3px solid black`}`,
-    //         cursor: "pointer",
-    //       }}
-    //     >
-    //       Home
-    //     </p>
-    //     <p
-    //       onClick={() => navigation("/about")}
-    //       style={{
-    //         borderBottom: `${pathName === "/about" && `3px solid black`}`,
-    //         cursor: "pointer",
-    //       }}
-    //     >
-    //       About us
-    //     </p>
-    //     <p
-    //       onClick={() => navigation("/services")}
-    //       style={{
-    //         borderBottom: `${pathName === "/services" && `3px solid black`}`,
-    //         cursor: "pointer",
-    //       }}
-    //     >
-    //       Treatments
-    //     </p>
-    //     <p
-    //       onClick={() => navigation("/about/doctor")}
-    //       style={{
-    //         borderBottom: `${
-    //           pathName === "/about/doctor" && `3px solid black`
-    //         }`,
-    //         cursor: "pointer",
-    //       }}
-    //     >
-    //       About Doctor
-    //     </p>
-    //     <p
-    //       onClick={() => navigation("/location")}
-    //       style={{
-    //         borderBottom: `${pathName === "/location" && `3px solid black`}`,
-    //         cursor: "pointer",
-    //       }}
-    //     >
-    //       Location
-    //     </p>
-    //     <button onClick={() => navigation("book")}>Book appointment</button>
-    //   </div>
-    // </div>
+   
   );
 }
 
