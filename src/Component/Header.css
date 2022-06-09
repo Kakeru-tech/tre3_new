@@ -75,12 +75,14 @@
   color: white;
   border: none;
 }
-@media only screen and (max-width: 1800px) {
+@media only screen and (max-width: 700px) {
   .header {
     display: flex;
+    flex: 1;
     justify-content: space-between;
     /* align-items: center; */
-    height: 50px;
+    padding-top: 5px;
+    height: 100px;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -89,6 +91,7 @@
     padding-left: 0 !important;
   }
   .navbar {
+    height: 100px;
     background-color: #f2f7df !important;
   }
   .header-right {
@@ -99,13 +102,15 @@
   }
   .navbar-brand {
     display: flex;
-    width: 100%;
+    flex: 1;
+    width: 100px;
     object-fit: fill;
     padding: 0 15px;
     background: url("../Assets/mobileHeader.png") no-repeat cover !important;
   }
   .navbar-nav {
-   visibility: hidden;
+    display: flex;
+    align-items: center;
   }
   .header-left > img {
     height: 180px;
@@ -136,7 +141,4 @@
     color: white;
     border-color: #75bf47;
   }
-}
-
-@media only screen and (max-width: 500px) {
 }
