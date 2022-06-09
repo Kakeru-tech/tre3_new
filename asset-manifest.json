@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/tre3_new/static/css/main.4c791485.css",
+    "main.js": "/tre3_new/static/js/main.25899bfd.js",
+    "static/js/787.f6a17fda.chunk.js": "/tre3_new/static/js/787.f6a17fda.chunk.js",
+    "static/media/mobileHeader.png": "/tre3_new/static/media/mobileHeader.c183926e46cfd450604b.png",
+    "static/media/image_6.jpg": "/tre3_new/static/media/image_6.a0a5bacf56d73ec5c77d.jpg",
+    "static/media/header.JPG": "/tre3_new/static/media/header.27a1f5d3bcb5711d6979.JPG",
+    "static/media/image_4.jpg": "/tre3_new/static/media/image_4.48eab31383f536110d98.jpg",
+    "static/media/image_2.jpg": "/tre3_new/static/media/image_2.be03a3ef05559eb6d9fe.jpg",
+    "static/media/image_5.jpg": "/tre3_new/static/media/image_5.49ba739b9f2f23f8d166.jpg",
+    "static/media/image_1.jpg": "/tre3_new/static/media/image_1.96e99f2333eef9a9456c.jpg",
+    "index.html": "/tre3_new/index.html",
+    "main.4c791485.css.map": "/tre3_new/static/css/main.4c791485.css.map",
+    "main.25899bfd.js.map": "/tre3_new/static/js/main.25899bfd.js.map",
+    "787.f6a17fda.chunk.js.map": "/tre3_new/static/js/787.f6a17fda.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4c791485.css",
+    "static/js/main.25899bfd.js"
+  ]
+}
